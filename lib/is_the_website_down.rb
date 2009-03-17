@@ -21,10 +21,7 @@ module IsTheWebsiteDown
     end
     
     def name
-      uri = URI.parse(@url)
-      uri.host +
-        (uri.port != 80 ? ":#{uri.port}" : "") +
-        (uri.path.to_s != "/" ? uri.path.to_s : "")
+      uri.host
     end
     
     def poll
