@@ -12,7 +12,7 @@ module IsTheWebsiteDown
       @status=:unknown
       @time=Time.now
       @seconds_between_polls=5
-      @timeout = 1
+      @timeout = 2
       @message = "The website has not yet been checked"
       safe_uri = uri.clone
       safe_uri.user=safe_uri.password = nil
