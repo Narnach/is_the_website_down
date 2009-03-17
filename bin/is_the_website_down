@@ -1,0 +1,2 @@
+#!/usr/bin/env ruby
+require 'is_the_website_down'
