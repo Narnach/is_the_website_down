@@ -1,6 +1,12 @@
 = IsTheWebsiteDown
 
-IsTheWebsiteDown is a simple Sinatra app that displays an overview of websites and if they are down or not. The list of websites can be configured via a YAML file.
+IsTheWebsiteDown is a simple Sinatra app that displays an overview of websites and if they are down or not. The list of websites can be configured via a text file. See config/sites.txt.example for an example. Rename it to config/sites.txt to start using it.
+
+== Requirements
+
+Sinatra: http://github.com/sinatra/sinatra
+Future: http://github.com/Narnach/future
+Haml: http://github.com/nex3/haml
 
 == Recent changes
 

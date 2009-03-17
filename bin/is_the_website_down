@@ -8,14 +8,12 @@ require 'sinatra'
 
 set :views, File.join(root_dir, 'views')
 set :environment, :production
-websites = %w[
-  http://www.google.com
-  http://www.yofriends.com
-].map {|site| IsTheWebsiteDown::Website.new(site)}
+websites = File.readlines(File.join(root_dir,'config','sites.txt')).map {|site| IsTheWebsiteDown::Website.new(site)}
 locals = {
   :title => "Is the website down?",
   :websites => websites
 }
 get '/' do
+  websites.each {|site| site.poll}
   haml :index, :locals => locals
 end

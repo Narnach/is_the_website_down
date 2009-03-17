@@ -2,14 +2,107 @@
 %html
   %head
     %title= title
+    %style
+      :sass
+        html, body
+          :font
+            :family "Helvetica Neue", Helvetica, Arial, Sans-Serif
+            :size 10pt
+          :color #666
+          :background #fefefe
+        body
+          :width 60em
+          :margin 0.5em auto
+          :padding 0 1em
+          :border
+            :left 0.1em #666 solid
+            :right 0.1em #666 solid
+        a
+          :color #666
+          :text
+            :decoration none
+          &:hover
+            :color #999
+            :text
+              :decoration underline
+          &:visited
+            :color #666
+        ul
+          :margin
+            :top 0
+            :bottom 0
+        h1, h2
+          :margin 0.5em 0 0
+          :color #333
+        h1
+          :font
+            :size 1.5em
+        h2
+          :font
+            :size 1.2em
+        .footer
+          :padding
+            :top 0.5em
+          :clear both
+          :text
+            :align center
+        div
+          &.site
+            :margin
+              :top 0.5em
+            :width 30em
+            :float left
+            ul
+              :list-style none
+              :padding
+                :left 0.5em
+            h2
+              :margin 0
+              :color #fff
+              :padding 0.2em
+              a
+                :color #fff
+          &.up
+            :opacity 0.3
+            &:hover
+              :opacity 1.0
+            :background #9c9
+            :color #444
+            h2
+              :background #090
+              :color #fff
+              :padding 0.2em
+          &.unknown, &.unauthorized, &.redirect
+            :opacity 0.7
+            &:hover
+              :opacity 1.0
+            :background #c93
+            :color #444
+            h2
+              :background #a60
+              :color #fff
+              :padding 0.2em
+          &.down, &.connection_timeout, &.request_timeout
+            :width 60em
+            :background #c99
+            :color #333
+            h2
+              :background #900
   %body
     %h1= title
     - for website in websites
-      %h2= website.url
-      %ul
-        %li
-          Status:
-          = website.status
-        %li
-          Last check:
-          = website.time
+      %div.site{:class=>website.status.to_s}
+        %h2
+          %a{:href=>website.public_url}= website.name
+        %ul
+          %li.status
+            Status:
+            = website.to_s
+          - if website.code
+            %li
+              Status code:
+              = website.code
+          %li
+            Last check:
+            = website.time
+    .footer IsTheWebsiteDown - Copyright &copy; 2009 Wes Oldenbeuving
