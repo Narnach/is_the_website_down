@@ -33,12 +33,17 @@ module IsTheWebsiteDown
       @status = Future.new do
         response = nil
         timeout @timeout * 2, :connection_timeout do
-          Net::HTTP.start(uri.host,uri.port) do |http|
-            req = Net::HTTP::Head.new(uri.path)
-            timeout @timeout, :request_timeout do
-              req.basic_auth(uri.user, uri.password) if uri.user && uri.password
-              response = http.request(req)
+          begin
+            Net::HTTP.start(uri.host,uri.port) do |http|
+              req = Net::HTTP::Head.new(uri.path)
+              timeout @timeout, :request_timeout do
+                req.basic_auth(uri.user, uri.password) if uri.user && uri.password
+                response = http.request(req)
+              end
             end
+          rescue SystemCallError => e
+            @status = :down
+            @message = e.message
           end
         end
         @message = nil
