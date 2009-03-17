@@ -1,8 +1,12 @@
 #!/usr/bin/env ruby
+root_dir = File.expand_path(File.join(File.dirname(__FILE__),'..'))
+lib_dir = File.join(root_dir, 'lib')
+$LOAD_PATH.unshift(lib_dir) unless $LOAD_PATH.include?(lib_dir)
+require 'rubygems'
 require 'is_the_website_down'
 require 'sinatra'
 
-set :views, File.expand_path(File.join(File.dirname(__FILE__),'..','views'))
+set :views, File.join(root_dir, 'views')
 set :environment, :production
 websites = %w[
   http://www.google.com
