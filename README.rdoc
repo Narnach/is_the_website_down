@@ -42,4 +42,4 @@ Start the app:
 Then open your browser and check http://localhost:4567
 
 == About
-IsTHeWebsiteDown was created by Wes Oldenbeuving. It is licensed under the MIT license.
+IsTheWebsiteDown was created by Wes Oldenbeuving. It is licensed under the MIT license.
