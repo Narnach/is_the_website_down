@@ -10,6 +10,19 @@ IsTheWebsiteDown is a simple Sinatra app that displays an overview of websites a
 
 == Recent changes
 
+== Version 0.2.0
+* Sort websites by hostname on load
+* Display monitored URLs by hostname
+* Also catch SocketError, which occurs if a hostname can not be resolved
+* Add missing comma
+* Rescue SystemCallError when Net::HTTP raises it
+* Configured public dir and root dir
+* Added favicon
+* Docfix: typo
+* Docfix: Installation instructions explain how to install/config/start the app
+* Remove rake tasks to build the non-existent gem
+* Docfix: requirements should not be a one-liner
+
 == Version 0.1.0
 * Added more URLs to sites.txt.example
 * Detect a missing sites.txt file
