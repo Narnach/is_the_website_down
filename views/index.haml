@@ -6,7 +6,10 @@
     %h1= title
     - for website in websites
       %h2= website.url
-      %p
-        Status:
-        = website.status
-    
+      %ul
+        %li
+          Status:
+          = website.status
+        %li
+          Last check:
+          = website.time

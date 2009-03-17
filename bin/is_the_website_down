@@ -1,13 +1,17 @@
 #!/usr/bin/env ruby
 require 'is_the_website_down'
+require 'sinatra'
 
+set :views, File.expand_path(File.join(File.dirname(__FILE__),'..','views'))
+set :environment, :production
+websites = %w[
+  http://www.google.com
+  http://www.yofriends.com
+].map {|site| IsTheWebsiteDown::Website.new(site)}
+locals = {
+  :title => "Is the website down?",
+  :websites => websites
+}
 get '/' do
-  websites = [
-    IsTheWebsiteDown::Website.new("http://www.google.com")
-  ]
-  locals = {
-    :title => "Is the website down?",
-    :websites => websites
-  }
-  haml :index, locals
+  haml :index, :locals => locals
 end
