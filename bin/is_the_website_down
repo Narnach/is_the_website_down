@@ -1,2 +1,13 @@
 #!/usr/bin/env ruby
 require 'is_the_website_down'
+
+get '/' do
+  websites = [
+    IsTheWebsiteDown::Website.new("http://www.google.com")
+  ]
+  locals = {
+    :title => "Is the website down?",
+    :websites => websites
+  }
+  haml :index, locals
+end

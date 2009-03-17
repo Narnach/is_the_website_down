@@ -1,0 +1,12 @@
+!!!
+%html
+  %head
+    %title= title
+  %body
+    %h1= title
+    - for website in websites
+      %h2= website.url
+      %p
+        Status:
+        = website.status
+    
