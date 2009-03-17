@@ -15,7 +15,7 @@ end
 set :root, root_dir
 set :views, File.join(root_dir, 'views')
 set :static, true
-set :lock true
+set :lock, true
 set :public, File.join(root_dir, 'public')
 set :environment, :production
 websites = File.readlines(sites_file).map {|site| IsTheWebsiteDown::Website.new(site)}
