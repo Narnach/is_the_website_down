@@ -1,6 +1,6 @@
 = IsTheWebsiteDown
 
-This is a new project. This readme was auto-generated.
+IsTheWebsiteDown is a simple Sinatra app that displays an overview of websites and if they are down or not. The list of websites can be configured via a YAML file.
 
 == Recent changes
 
@@ -16,4 +16,4 @@ From the project root, use rake to install.
 This will build the gem and install it for you.
 
 == About
-is_the_website_down was created by Wes Oldenbeuving. It is licensed under the MIT license.
+IsTHeWebsiteDown was created by Wes Oldenbeuving. It is licensed under the MIT license.
