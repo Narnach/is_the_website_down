@@ -32,6 +32,7 @@ module IsTheWebsiteDown
       @time = Time.now
       @status = Future.new do
         response = nil
+        @message = nil
         timeout @timeout * 2, :connection_timeout do
           begin
             Net::HTTP.start(uri.host,uri.port) do |http|
@@ -44,9 +45,11 @@ module IsTheWebsiteDown
           rescue SystemCallError => e
             @status = :down
             @message = e.message
+          rescue SocketError => e
+            @status = :down
+            @message = e.message
           end
         end
-        @message = nil
         next @status unless response
         @code = response.code
         case response
