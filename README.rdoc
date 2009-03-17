@@ -4,9 +4,9 @@ IsTheWebsiteDown is a simple Sinatra app that displays an overview of websites a
 
 == Requirements
 
-Sinatra: http://github.com/sinatra/sinatra
-Future: http://github.com/Narnach/future
-Haml: http://github.com/nex3/haml
+* Sinatra: http://github.com/sinatra/sinatra
+* Future: http://github.com/Narnach/future
+* Haml: http://github.com/nex3/haml
 
 == Recent changes
 
