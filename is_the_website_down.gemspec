@@ -1,8 +1,8 @@
 Gem::Specification.new do |s|
   # Project
   s.name         = 'is_the_website_down'
-  s.summary      = "A new project"
-  s.description  = "A new project"
+  s.summary      = "Display an overview of websites that are down."
+  s.description  = s.summary
   s.version      = '0.0.1'
   s.date         = '2009-3-17'
   s.platform     = Gem::Platform::RUBY
