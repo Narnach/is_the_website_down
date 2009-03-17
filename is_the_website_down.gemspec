@@ -3,7 +3,7 @@ Gem::Specification.new do |s|
   s.name         = 'is_the_website_down'
   s.summary      = "Display an overview of websites that are down."
   s.description  = s.summary
-  s.version      = '0.0.1'
+  s.version      = '0.0.2'
   s.date         = '2009-3-17'
   s.platform     = Gem::Platform::RUBY
   s.authors      = ["Wes Oldenbeuving"]
