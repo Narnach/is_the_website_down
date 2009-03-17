@@ -30,11 +30,16 @@ IsTheWebsiteDown is a simple Sinatra app that displays an overview of websites a
 
 == Installation
 === From git
-From the project root, use rake to install.
+
+Obtain the source code from github:
   git clone http://github.com/Narnach/is_the_website_down
   cd is_the_website_down
-  rake install
-This will build the gem and install it for you.
+  cp config/sites.txt.example config/sites.txt
+
+Edit config/sites.txt and replace the example with sites you want to monitor.
+Start the app:
+  bin/is_the_website_down
+Then open your browser and check http://localhost:4567
 
 == About
 IsTHeWebsiteDown was created by Wes Oldenbeuving. It is licensed under the MIT license.
