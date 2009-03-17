@@ -10,6 +10,21 @@ Haml: http://github.com/nex3/haml
 
 == Recent changes
 
+== Version 0.1.0
+* Added more URLs to sites.txt.example
+* Detect a missing sites.txt file
+* Added link to footer
+* Upped timeout from 1 to 2 seconds
+* Split CSS into its own file
+* Working prototype
+* Don't build a gem, run the code directly
+
+== Version 0.0.2
+* Actually display the page with sites
+* Added simple overview page with hard-coded google url
+* Updated gem description
+* Updated readme with simple description
+
 === Version 0.0.1
 * Created project
 
