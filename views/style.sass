@@ -13,8 +13,6 @@ body
     :right 0.1em #666 solid
 a
   :color #666
-  :text
-    :decoration none
   &:hover
     :color #999
     :text
@@ -55,7 +53,12 @@ div
       :color #fff
       :padding 0.2em
       a
+        :text
+          :decoration none
         :color #fff
+        &:hover
+          :text
+            :decoration underline
   &.up
     :opacity 0.3
     &:hover
