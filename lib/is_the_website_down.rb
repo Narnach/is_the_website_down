@@ -30,6 +30,7 @@ module IsTheWebsiteDown
       @status = Future.new do
         response = nil
         @message = nil
+        @code = nil
         timeout @timeout * 2, :connection_timeout do
           begin
             Net::HTTP.start(uri.host,uri.port) do |http|
