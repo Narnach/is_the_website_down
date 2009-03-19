@@ -2,6 +2,8 @@
 
 IsTheWebsiteDown is a simple Sinatra app that displays an overview of websites and if they are down or not. The list of websites can be configured via a text file. See config/sites.txt.example for an example. Rename it to config/sites.txt to start using it.
 
+This is a prototype I threw together in a couple of hours, to see how Sinatra works and how easy or hard a simple monitor page would be to build.
+
 == Requirements
 
 * Sinatra: http://github.com/sinatra/sinatra
@@ -53,6 +55,17 @@ Edit config/sites.txt and replace the example with sites you want to monitor.
 Start the app:
   bin/is_the_website_down
 Then open your browser and check http://localhost:4567
+
+== Todo
+Things that are needed or just neat to implement:
+* Move website status checking to a background thread that periodically pokes each website
+   * Periodically store status to a file or database
+* Display an uptime/downtime history in words: "www.google.com has been up for at least 7 days and 23 hours",  "mail.google.com has been down for 3 hours, before that it was up for over 7 days and 20 hours"
+* Add an RSS feed
+* Tag websites and display sites per tag
+  * Each tag can get its own RSS feed
+* Add a login or 'private' URL that shows the status of non-public websites and services.
+* Tests: those are always good once you know what want to do.
 
 == About
 IsTheWebsiteDown was created by Wes Oldenbeuving. It is licensed under the MIT license.
