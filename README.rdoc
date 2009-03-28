@@ -12,6 +12,13 @@ This is a prototype I threw together in a couple of hours, to see how Sinatra wo
 
 == Recent changes
 
+== Version 0.3.0
+* Display a 'last updated' time on the frontpage
+* Refactored update check needed logic into a method
+* Moved site status checking to a background thread
+* Added todo list
+* Reset last status code before connecting
+
 == Version 0.2.0
 * Sort websites by hostname on load
 * Display monitored URLs by hostname
@@ -58,8 +65,10 @@ Then open your browser and check http://localhost:4567
 
 == Todo
 Things that are needed or just neat to implement:
-* Move website status checking to a background thread that periodically pokes each website
-   * Periodically store status to a file or database
+* Make public methods of Website thread-safe
+  * Add a synchronize block all state changes.
+  * Add a synchronize block to the HAML that renders a Website
+* Periodically store status to a file or database
 * Display an uptime/downtime history in words: "www.google.com has been up for at least 7 days and 23 hours",  "mail.google.com has been down for 3 hours, before that it was up for over 7 days and 20 hours"
 * Add an RSS feed
 * Tag websites and display sites per tag
