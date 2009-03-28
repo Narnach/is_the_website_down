@@ -35,6 +35,7 @@ module IsTheWebsiteDown
 
   class Website < Monitor
     attr_reader :url, :status, :time, :message, :public_url, :code, :uri
+    attr_accessor :min_seconds_between_polls, :max_seconds_between_polls, :seconds_between_polls
 
     def initialize(url)
       @url=url
@@ -58,7 +59,7 @@ module IsTheWebsiteDown
     end
 
     def update_status
-      return @status unless seconds_since_poll > @seconds_between_polls or @status == :unknown
+      return status unless update_needed?
       @time = Time.now
       @status = Future.new do
         response = nil
@@ -115,6 +116,10 @@ module IsTheWebsiteDown
 
     def up?
       @status == :up
+    end
+
+    def update_needed?
+      seconds_since_poll > seconds_between_polls or status == :unknown
     end
 
     def to_s
