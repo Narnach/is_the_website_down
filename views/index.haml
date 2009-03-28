@@ -5,6 +5,7 @@
     %link{:rel=>"stylesheet", :href=>"style.css", :type=>"text/css", :media=>"screen,projection"}
   %body
     %h1= title
+    #subtitle= "Last check at #{websites.last_updated}"
     - for website in websites
       %div.site{:class=>website.status.to_s}
         %h2
@@ -20,6 +21,6 @@
           %li
             Last check:
             = website.time
-    .footer
+    #footer
       IsTheWebsiteDown - Copyright &copy; 2009
       %a{:href=>"http://github.com/Narnach/is_the_website_down"} Wes Oldenbeuving
