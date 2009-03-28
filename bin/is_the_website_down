@@ -18,15 +18,18 @@ set :static, true
 set :lock, true
 set :public, File.join(root_dir, 'public')
 set :environment, :production
-websites = File.readlines(sites_file).map {|site| IsTheWebsiteDown::Website.new(site)}.sort_by {|site| site.name}
+websites = IsTheWebsiteDown::WebsiteList.load_file(sites_file)
+websites.auto_update
+
 locals = {
   :title => "Is the website down?",
   :websites => websites
 }
+
 get '/' do
-  websites.each {|site| site.poll}
   haml :index, :locals => locals
 end
+
 get '/style.css' do
   content_type 'text/css'
   sass :style
