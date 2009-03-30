@@ -78,9 +78,15 @@ module IsTheWebsiteDown
               end
             end
           rescue SystemCallError => e
-            connection_error(e)
+            @status = :down
+            @message = e.message
+            @seconds_between_polls /= 2
+            @seconds_between_polls = @min_seconds_between_polls if @seconds_between_polls < @min_seconds_between_polls
           rescue SocketError => e
-            connection_error(e)
+            @status = :down
+            @message = e.message
+            @seconds_between_polls /= 2
+            @seconds_between_polls = @min_seconds_between_polls if @seconds_between_polls < @min_seconds_between_polls
           end
         end
         next @status unless response
@@ -149,15 +155,5 @@ module IsTheWebsiteDown
       end
       res
     end
-  end
-
-  protected
-
-  def connection_error(e)
-    @status = :down
-    @message = e.message
-    @seconds_between_polls /= 2
-    @seconds_between_polls = @min_seconds_between_polls if @seconds_between_polls < @min_seconds_between_polls
-    nil
   end
 end
