@@ -12,14 +12,17 @@ This is a prototype I threw together in a couple of hours, to see how Sinatra wo
 
 == Recent changes
 
-== Version 0.3.0
+=== Version 0.3.1
+* Bugfix: Inlined Website#connection_error into Future block code
+
+=== Version 0.3.0
 * Display a 'last updated' time on the frontpage
 * Refactored update check needed logic into a method
 * Moved site status checking to a background thread
 * Added todo list
 * Reset last status code before connecting
 
-== Version 0.2.0
+=== Version 0.2.0
 * Sort websites by hostname on load
 * Display monitored URLs by hostname
 * Also catch SocketError, which occurs if a hostname can not be resolved
@@ -32,7 +35,7 @@ This is a prototype I threw together in a couple of hours, to see how Sinatra wo
 * Remove rake tasks to build the non-existent gem
 * Docfix: requirements should not be a one-liner
 
-== Version 0.1.0
+=== Version 0.1.0
 * Added more URLs to sites.txt.example
 * Detect a missing sites.txt file
 * Added link to footer
@@ -41,13 +44,13 @@ This is a prototype I threw together in a couple of hours, to see how Sinatra wo
 * Working prototype
 * Don't build a gem, run the code directly
 
-== Version 0.0.2
+=== Version 0.0.2
 * Actually display the page with sites
 * Added simple overview page with hard-coded google url
 * Updated gem description
 * Updated readme with simple description
 
-=== Version 0.0.1
+==== Version 0.0.1
 * Created project
 
 == Installation
