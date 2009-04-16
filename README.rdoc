@@ -12,6 +12,12 @@ This is a prototype I threw together in a couple of hours, to see how Sinatra wo
 
 == Recent changes
 
+=== Version 0.4.0
+* Added Phusion Passenger support
+  * DRYed up executable by using service.rb
+  * Added rackup file and a service file that defines the service
+* Each class has its own file
+* Ignore logs directory
 === Version 0.3.1
 * Bugfix: Inlined Website#connection_error into Future block code
 
