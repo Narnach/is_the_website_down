@@ -2,3 +2,4 @@ coverage
 pkg
 doc
 config/sites.txt
+logs
