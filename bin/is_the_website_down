@@ -3,14 +3,9 @@ root_dir = File.expand_path(File.join(File.dirname(__FILE__),'..'))
 lib_dir = File.join(root_dir, 'lib')
 $LOAD_PATH.unshift(lib_dir) unless $LOAD_PATH.include?(lib_dir)
 require 'rubygems'
-require 'is_the_website_down'
 require 'sinatra'
 
-sites_file = File.join(root_dir,'config','sites.txt')
-unless File.exist? sites_file
-  STDOUT.puts "config/sites.txt is missing. Please create it. See config/sites.txt.example for examples"
-  exit 1
-end
+require 'is_the_website_down/service'
 
 set :root, root_dir
 set :views, File.join(root_dir, 'views')
@@ -18,19 +13,3 @@ set :static, true
 set :lock, true
 set :public, File.join(root_dir, 'public')
 set :environment, :production
-websites = IsTheWebsiteDown::WebsiteList.load_file(sites_file)
-websites.auto_update
-
-locals = {
-  :title => "Is the website down?",
-  :websites => websites
-}
-
-get '/' do
-  haml :index, :locals => locals
-end
-
-get '/style.css' do
-  content_type 'text/css'
-  sass :style
-end
