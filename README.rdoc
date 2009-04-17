@@ -72,18 +72,5 @@ Start the app:
   bin/is_the_website_down
 Then open your browser and check http://localhost:4567
 
-== Todo
-Things that are needed or just neat to implement:
-* Make public methods of Website thread-safe
-  * Add a synchronize block all state changes.
-  * Add a synchronize block to the HAML that renders a Website
-* Periodically store status to a file or database
-* Display an uptime/downtime history in words: "www.google.com has been up for at least 7 days and 23 hours",  "mail.google.com has been down for 3 hours, before that it was up for over 7 days and 20 hours"
-* Add an RSS feed
-* Tag websites and display sites per tag
-  * Each tag can get its own RSS feed
-* Add a login or 'private' URL that shows the status of non-public websites and services.
-* Tests: those are always good once you know what want to do.
-
 == About
 IsTheWebsiteDown was created by Wes Oldenbeuving. It is licensed under the MIT license.
