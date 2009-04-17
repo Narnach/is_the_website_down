@@ -4,6 +4,10 @@ IsTheWebsiteDown is a simple Sinatra app that displays an overview of websites a
 
 This is a prototype I threw together in a couple of hours, to see how Sinatra works and how easy or hard a simple monitor page would be to build.
 
+Since version 0.4.0 it works with Phusion Passenger.
+
+Ideas and bugs can be reported at the Github issue tracker.
+
 == Requirements
 
 * Sinatra: http://github.com/sinatra/sinatra
